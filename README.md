@@ -1,1 +1,58 @@
-## bloodhound
+# bloodhound
+
+## Getting Up and Running Locally With Docker
+
+## Prerequisites
+
+ - Docker - follow the installation [instructions](https://docs.docker.com/get-started/get-docker/#supported-platforms)  if you do not have it. 
+ - Docker Compose - refer to the [official documentation](https://docs.docker.com/compose/install/) for the installation guide.
+ - Pre-commit - refer to the [official documentation](https://pre-commit.com/#install) for the pre-commit.
+
+## Build the Stack
+The build command can take a while, especially the first time you run this particular command on your machine.
+
+```
+$ docker compose -f docker-compose.local.yml build
+```
+
+IF you want to emulate production env you xan use `docker-compose.production.yml` instead.
+
+Before doing any git commit, [pre-commit](https://pre-commit.com/#install) should be installed globally on your local machine, and then:
+
+```
+$ git init
+$ pre-commit install
+```
+
+Failing to do so will result with a bunch of CI and Linter errors that can be avoided with pre-commit.
+## Run the Stack
+
+This brings up both Django and PostgreSQL. The first time it is run it might take a while to get started, but subsequent runs will occur quickly.
+
+Open a terminal at the project root and run the following for local development:
+
+```
+$ docker compose -f docker-compose.local.yml up
+```
+
+You can also set the environment variable COMPOSE_FILE pointing to docker-compose.local.yml like this:
+
+```
+$ export COMPOSE_FILE=docker-compose.local.yml
+```
+
+And then run:
+
+```
+$ docker compose up
+```
+
+To check the logs, you can run:
+
+```
+$ docker-compose logs
+```
+
+## Usuful commands
+
+ - `pip list --not-required --format=freeze > requirements/base.txt` Add only required deps to the base file.
