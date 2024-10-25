@@ -33,13 +33,24 @@ WORKDIR ${APP_HOME}
 RUN apt-get update && apt-get install --no-install-recommends -y \
   sudo git bash-completion nano ssh
 
-# Install latest Sqlite for now. Latest Django requires anything above or equals to 3.31
-#RUN sudo apt-get -y upgrade
-RUN sudo apt-get install -y sqlite3 libsqlite3-dev
+# Install required system dependencies
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  # psycopg dependencies
+  libpq-dev  \
+  wait-for-it \
+  # Translations dependencies
+  gettext \
+  # cleaning up unused files
+  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+  && rm -rf /var/lib/apt/lists/*
 
 # All absolute dir copies ignore workdir instruction. All relative dir copies are wrt to the workdir instruction
 # copy python dependency wheels from python-build-stage.
 COPY --from=python-build-stage /usr/src/app/wheels  /wheels/
+
+COPY ./compose/production/django/entrypoint /entrypoint
+RUN sed -i 's/\r$//g' /entrypoint
+RUN chmod +x /entrypoint
 
 COPY ./compose/local/django/start /start
 RUN sed -i 's/\r$//g' /start
@@ -54,3 +65,5 @@ RUN pip install --upgrade pip
 
 # copy application code to WORKDIR
 COPY . ${APP_HOME}
+
+ENTRYPOINT ["/entrypoint"]

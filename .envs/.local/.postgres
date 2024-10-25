@@ -1,0 +1,7 @@
+# PostgreSQL
+# ----------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=bloodhound
+POSTGRES_USER=dev
+POSTGRES_PASSWORD=changeme407
