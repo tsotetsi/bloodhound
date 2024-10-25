@@ -20,14 +20,30 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.forms",
 ]
+
+THIRD_PARTY_APPS = [
+    # Requiremd by 'allauth' apps.
+    "allauth",
+    "allauth.account",
+    # The MFA app (https://docs.allauth.org/en/latest/mfa/)
+    "allauth.mfa",
+]
+
+LOCAL_APPS = [
+    "bloodhound.agents",
+]
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -59,11 +75,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-# DATABASES = {"default": os.getenv("DATABASE_URL")}
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
