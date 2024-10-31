@@ -6,3 +6,4 @@ IPYTHONDIR="/app/.ipython"
 DEBUG=1
 SECRET_KEY="local-secret-key"
 DJANGO_ALLOWED_HOSTS=["localhost", "0.0.0.0", "127.0.0.1"]
+DJANGO_ADMIN_FORCE_ALLAUTH=True

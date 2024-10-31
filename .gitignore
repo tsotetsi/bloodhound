@@ -7,3 +7,6 @@ env/
 
 # Python Cached Files.
 __pycache__
+
+# Mailpit DB Files.
+/data
