@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
- - Docker - follow the installation [instructions](https://docs.docker.com/get-started/get-docker/#supported-platforms)  if you do not have it. 
+ - Docker - follow the installation [instructions](https://docs.docker.com/get-started/get-docker/#supported-platforms)  if you do not have it.
  - Docker Compose - refer to the [official documentation](https://docs.docker.com/compose/install/) for the installation guide.
  - Pre-commit - refer to the [official documentation](https://pre-commit.com/#install) for the pre-commit.
 
@@ -53,6 +53,18 @@ To check the logs, you can run:
 $ docker-compose logs
 ```
 
-## Usuful commands
+## Useful commands
 
  - `pip list --not-required --format=freeze > requirements/base.txt` Add only required deps to the base file.
+
+## Database commands.
+To get the postgres image-id, use the following command:
+
+- `docker ps | grep postgres | awk '{print $1}'`
+   then you would get something like: `cd2057ecd4d5` which is the postgres image.
+
+- `docker exec -it <image-id> psql -U dev -d postgres -c "DROP DATABASE bloodhound;"` # Delete DB.(Fix me!)
+- `docker exec -it <image-id> psql -U dev -d postgres -c "CREATE DATABASE bloodhound;` # Create DB.(Fix me!)
+
+### Run django commands agaqinst the image.
+- `docker-compose run --rm django python manage.py createsuperuser`
