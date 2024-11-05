@@ -1,7 +1,13 @@
-# PostgreSQL
-# ----------------------------
+# POSTGRESQL DEV DATABASE
+# ---------------------------------------
 POSTGRES_HOST=postgres
 POSTGRES_PORT=5432
 POSTGRES_DB=bloodhound
 POSTGRES_USER=dev
 POSTGRES_PASSWORD=changeme407
+
+# POSTGRESQL TEST DATABASE
+# ---------------------------------------
+POSTGRES_DB_TEST=bloodgound_test
+POSTGRES_USER_TEST=postgres
+POSTGRES_PASSWORD_TEST=postgres

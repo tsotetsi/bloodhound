@@ -7,12 +7,16 @@ import sys
 from .base import *  # noqa: F403
 from .base import TEMPLATES
 
-TEST_DATABASE_PREFIX = "test_"
 
-# Switch to Sqlite3 for testing purposes.
+# DATABASES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_DB_TEST", default="bloodhound_test"),
+        "USER": os.getenv("POSTGRES_USER_TEST", default="postgres"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD_TEST", default="postgres"),
     }
 }
 
