@@ -15,7 +15,7 @@ The build command can take a while, especially the first time you run this parti
 $ docker compose -f docker-compose.local.yml build
 ```
 
-IF you want to emulate production env you xan use `docker-compose.production.yml` instead.
+If you want to emulate production env you can use `docker-compose.production.yml` instead.
 
 Before doing any git commit, [pre-commit](https://pre-commit.com/#install) should be installed globally on your local machine, and then:
 
@@ -65,6 +65,18 @@ To get the postgres image-id, use the following command:
 
 - `docker exec -it <image-id> psql -U dev -d postgres -c "DROP DATABASE bloodhound;"` # Delete DB.(Fix me!)
 - `docker exec -it <image-id> psql -U dev -d postgres -c "CREATE DATABASE bloodhound;` # Create DB.(Fix me!)
+
+### Test coverage.
+
+To run the tests, check your test coverage, and generate an HTML coverage report:
+
+    $ coverage run -m pytest
+    $ coverage html
+    $ open htmlcov/index.html
+
+#### Running tests with pytest.
+
+    $ pytest
 
 ### Run django commands agaqinst the image.
 - `docker-compose run --rm django python manage.py createsuperuser`
