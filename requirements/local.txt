@@ -1,5 +1,7 @@
 -r production.txt
 
+# Fixes issue with deprecated sqlite3 version.
+pysqlite3-binary==0.5.4
 
 # Django
 # ------------------------------------------------------------------------------

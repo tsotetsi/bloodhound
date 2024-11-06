@@ -1,5 +1,5 @@
 # Pull official base image.
-FROM python:3.11.4-slim-buster AS python
+FROM python:3.11.4-slim-bookworm AS python
 
 # Python build stage.
 FROM python AS python-build-stage

@@ -8,15 +8,12 @@ from .base import *  # noqa: F403
 from .base import TEMPLATES
 
 
-# DATABASES
+# DATABASE FOR TESTING
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB_TEST", default="bloodhound_test"),
-        "USER": os.getenv("POSTGRES_USER_TEST", default="postgres"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD_TEST", default="postgres"),
+        "ENGINE": "django.db.backends.sqlite3",
     }
 }
 
