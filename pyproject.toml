@@ -6,3 +6,9 @@ python_files = [
     "tests.py",
     "test_*.py",
 ]
+
+# ==== Coverage ====
+[tool.coverage.run]
+include = ["bloodhound/**"]
+omit = ["*/migrations/*", "*/tests/*"]
+plugins = ["django_coverage_plugin"]
