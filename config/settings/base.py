@@ -75,6 +75,7 @@ THIRD_PARTY_APPS = [
     "allauth.mfa",
     "crispy_forms",
     "crispy_bootstrap5",
+    "rest_framework",
 ]
 
 LOCAL_APPS = [
