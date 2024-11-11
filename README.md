@@ -78,5 +78,5 @@ To run the tests, check your test coverage, and generate an HTML coverage report
 
     $ pytest
 
-### Run django commands agaqinst the image.
+### Run django commands against the image.
 - `docker-compose run --rm django python manage.py createsuperuser`

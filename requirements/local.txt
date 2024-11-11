@@ -5,13 +5,14 @@ pysqlite3-binary==0.5.4
 
 # Django
 # ------------------------------------------------------------------------------
-factory-boy==3.3.1  # https://github.com/FactoryBoy/factory_boy
 
 pytest-django==4.9.0
+django-debug-toolbar==4.4.6
 
 # Testing
 # -----------------------------------------------------------------------------
 pytest==8.3.3
+factory-boy==3.3.1  # https://github.com/FactoryBoy/factory_boy
 
 # Code quality
 # -----------------------------------------------------------------------------
