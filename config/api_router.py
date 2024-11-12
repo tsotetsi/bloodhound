@@ -5,9 +5,9 @@ from rest_framework.routers import SimpleRouter
 from bloodhound.users.api.views import UserViewSet
 
 
-router = DefaultRouter() if settings.DEBUG else SimpleRouter
+router = DefaultRouter() if settings.DEBUG else SimpleRouter()
 
-router.register("users", UserViewSet)
+router.register(prefix="users", viewset=UserViewSet)
 
 
 app_name = "api"

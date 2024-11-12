@@ -10,3 +10,6 @@ __pycache__
 
 # Mailpit DB Files.
 /data
+
+# IDE Settings(settings.json breaks pre-commit.)
+.vscode/
