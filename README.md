@@ -47,10 +47,10 @@ And then run:
 $ docker compose up
 ```
 
-To check the logs, you can run:
+To check docker logs, you can run:
 
 ```
-$ docker-compose logs
+$ docker compose logs
 ```
 
 ## Useful commands
